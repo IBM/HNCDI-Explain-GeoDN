@@ -1,0 +1,56 @@
+{
+    "workflow_type": "mmseg_burn_scars",
+    "workflow_options": {
+        "cpu": "8",
+        "memory": "20Gi",
+        "gpu": "1",        
+        "model_options": {
+            "project_name": "firescars",
+            "pretrained_weights": "burn_scars_Prithvi_100M.pt",
+            "num_layers": 12,
+            "patch_size": 16,
+            "embed_dim": 768,
+            "num_heads": 12,
+            "tubelet_size": 1,
+            "num_epochs": 5,
+            "eval_epoch_interval": 5,
+            "cpu": "8",
+            "memory": "20Gi",
+            "gpu": "1"
+        },
+        "input_data": {
+            "training_data": {
+                "source": "COS",
+                "credential_secret": "coscred",
+                "credential_env": "COSCRED",
+                "bucket": "geodn-explain-course3",
+                "cos-region": "eu-gb",
+                "filename": "hls-burn-scars/training/subsetted_512x512_HLS.S30.T10*"
+            },
+            "validation_data": {
+                "source": "COS",
+                "credential_secret": "coscred",
+                "credential_env": "COSCRED",
+                "bucket": "geodn-explain-course3",
+                "cos-region": "eu-gb",
+                "filename": "hls-burn-scars/validation/subsetted_512x512_HLS.S30.T10*"
+            },  
+            "inference_data": {
+                "source": "COS",
+                "credential_secret": "coscred",
+                "credential_env": "COSCRED",
+                "bucket": "geodn-explain-course3",
+                "cos-region": "eu-gb",
+                "filename": "hls-burn-scars/inference/subsetted_512x512*"
+            },  
+            "model_weights": {
+                "source": "COS",
+                "credential_secret": "coscred",
+                "credential_env": "COSCRED",
+                "bucket": "geodn-explain-course3",
+                "cos-region": "eu-gb",
+                "filename": "Prithvi-100M/Prithvi*"
+            }
+        }
+    }
+}

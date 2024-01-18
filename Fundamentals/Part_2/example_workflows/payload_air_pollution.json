@@ -1,0 +1,15 @@
+{
+    "workflow_type": "explain_air_pollution_v1",
+    "workflow_options": {
+        "input_data": {
+            "air-pollution": {
+                "source": "COS",
+                "credential_secret": "coscred",
+                "credential_env": "COSCRED",
+                "bucket": "geodn-explain-course3",
+                "cos-region": "eu-gb",
+                "filename": "warrington_2020_daily_mean_pm10.csv"
+            }
+        }
+    }
+}

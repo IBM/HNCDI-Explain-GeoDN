@@ -1,0 +1,5 @@
+*.nc
+*.DS_Store
+.ipynb_checkpoints
+course2/cache/*
+__pycache__
